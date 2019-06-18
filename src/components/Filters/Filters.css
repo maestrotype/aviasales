@@ -6,3 +6,11 @@
     box-shadow: 0 2px 5px #333;
     margin: 10px;
 }
+
+.transplants-filter {
+    display: flex;
+}
+
+.filters-container {
+
+}
