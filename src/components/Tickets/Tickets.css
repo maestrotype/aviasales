@@ -1,0 +1,53 @@
+.ticket {
+    height: 161px;
+    width: 566px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgb(103, 101, 101);
+    margin: 10px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.btn-buy {
+    background-color: #FF6D00;
+    box-shadow: 0 1px 1px #d64d08;
+    color: #fff;
+    display: flex;
+    border-radius: 5px;
+    width: 160px;
+    height: 56px;
+}
+.price {
+    margin: auto;
+}
+.transp-side {
+    display: flex;
+    color: #979797;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+}
+.transp-from, .transp-to {
+    font-size: 12px;
+    text-align: left;
+    line-height: 1.5;
+}
+.sity {
+    color: #4a4a4a;
+}
+.time {
+    font-size: 32px;
+    color: #4a4a4a;
+}
+.underline {
+    height: 1px;
+    background-color: #979797;
+    position: relative;
+}
+.plane {
+    position: absolute;
+    right: -15px;
+    bottom: -6px;
+}

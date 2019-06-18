@@ -2,7 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Filters } from './components/Filters/Filters';
-import { Ticket } from './components/Ticket/Ticket';
+import { Tickets } from './components/Tickets/Tickets';
 
 function App() {
   return (
@@ -12,13 +12,7 @@ function App() {
       </header>
       <div className="container">
         <Filters />
-        <div className="tickets">
-          <Ticket />  
-          <Ticket />  
-          <Ticket />  
-          <Ticket />  
-          <Ticket />  
-        </div>
+        <Tickets />
       </div>
     </div>
   );
