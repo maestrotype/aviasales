@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "6964be2fbb9dc3e614d3b77b0a2b3c3b",
+    "revision": "b7b1b54d6412105bec35728c76e3767e",
     "url": "/aviasales/index.html"
   },
   {
-    "revision": "852e3783f3e5f320d9b6",
-    "url": "/aviasales/static/css/main.187c07ac.chunk.css"
+    "revision": "9eae7c527e8052bd0271",
+    "url": "/aviasales/static/css/main.30ad1ec8.chunk.css"
   },
   {
-    "revision": "43d1f55c2a696b4563b8",
-    "url": "/aviasales/static/js/2.179f4c70.chunk.js"
+    "revision": "efc3d230fd1e1b3caa34",
+    "url": "/aviasales/static/js/2.bbcd3f81.chunk.js"
   },
   {
-    "revision": "852e3783f3e5f320d9b6",
-    "url": "/aviasales/static/js/main.a70f817e.chunk.js"
+    "revision": "9eae7c527e8052bd0271",
+    "url": "/aviasales/static/js/main.68ab8c01.chunk.js"
   },
   {
     "revision": "af052bb48cec26b9b243",
@@ -22,6 +22,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "c82fe072f53821f22daeccb9ac87aa80",
     "url": "/aviasales/static/media/logo.c82fe072.svg"
+  },
+  {
+    "revision": "3e60741631b14f3f3284601b70003db0",
+    "url": "/aviasales/static/media/plane.3e607416.svg"
   },
   {
     "revision": "432b1606ce770a180d5e7ac82b3a04ac",
