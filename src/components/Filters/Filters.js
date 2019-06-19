@@ -1,17 +1,38 @@
 import React, { Component } from 'react';
-import './Filters.css'
+import './Filters.css';
+
+const langMenu = [
+    'RUB',
+    'USD',
+    'EUR'
+
+];
 
 export class Filters extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            active: 'RUB',
+        };
+    }
+
+    changeLang = (langItem) => {
+        
+        this.setState({ active: langItem });
+    }
 
     render() {
         return (
             <div className="filters">
                 <h2>Валюта</h2>
                 <ul className="lang">
-                    <li className="active">RUB</li>
-                    <li>USD</li>
-                    <li>EUR</li>
-                </ul>
+                    {langMenu.map(langItem =>
+                    <li className={this.state.active === langItem ? 'active': null} onClick={this.changeLang.bind(this, langItem)}>{langItem}</li>
+                    // <li className={this.state.activeClass ? 'active': null} onClick={this.changeLang}>USD</li>
+                    // <li className={this.state.activeClass ? 'active': null} onClick={this.changeLang}>EUR</li>
+                    )}    
+                    </ul>
                 <h3>Количество пересадок</h3>
                 <div className="filters-container">
                     <div className="transplants-filter">

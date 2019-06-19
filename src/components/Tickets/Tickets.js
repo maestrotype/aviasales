@@ -28,7 +28,7 @@ export class Tickets extends Component {
 
 
     render() {
-        
+
         const { tickets } = this.state;
        
         return (
@@ -51,7 +51,7 @@ export class Tickets extends Component {
                                     <div className="date">{departure_date}</div>
                                 </div>
                                 <div className="amount-transp">
-                                    <span>{stops} пересадк{stops == 1 ? 'a' : 'и' }</span>
+                                    <span>{stops} пересадк{stops === 1 ? 'a' : 'и' }</span>
                                     <div className="underline">
                                         <img className="plane" src={plane} alt="plane"/>
                                     </div>
