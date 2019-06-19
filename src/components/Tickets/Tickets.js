@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import title from './title.svg';
 import plane from './plane.svg';
+import data from './tickets.json';
 import './Tickets.css';
 
-const API = "http://www.json-generator.com/api/json/get/cqGducpwHS?indent=2";
+// const API = "http://www.json-generator.com/api/json/get/cqGducpwHS?indent=2";
 
 export class Tickets extends Component {
 
@@ -12,20 +13,24 @@ export class Tickets extends Component {
         this.state = { tickets: [] };
     }
 
-    componentWillMount() {
-        fetch(API)
-            .then(response => response.json())
-            .then(data => {
-                console.log('data', data);
-                this.setState({ tickets: data.tickets });
-            })
-            .catch(error => console.log('error', error));
+    componentDidMount() {
+        
+            this.setState({ tickets: data.tickets });
+    
+        // fetch(API)
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         console.log('data', data);
+        //         this.setState({ tickets: data.tickets });
+        //     })
+        //     .catch(error => console.log('error', error));
     }
 
 
     render() {
+        
         const { tickets } = this.state;
-        console.log('tickets', tickets);
+       
         return (
             <div className="tickets">
                 {tickets.map((ticket) => {
