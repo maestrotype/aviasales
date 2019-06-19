@@ -36,7 +36,7 @@ export class Tickets extends Component {
                             <div className="side-buy">
                                 <img src={title} alt="title" />
                                 <div className="btn-buy">
-                                    <span className="price">Купить за {price}</span>
+                                    <span className="price">Купить за {price} ₽</span>
                                 </div>
                             </div>
                             <div className="transp-side">

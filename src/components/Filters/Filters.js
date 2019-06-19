@@ -6,13 +6,13 @@ export class Filters extends Component {
     render() {
         return (
             <div className="filters">
-                <h3>Валюта</h3>
+                <h2>Валюта</h2>
                 <ul className="lang">
-                    <li>RUB</li>
+                    <li className="active">RUB</li>
                     <li>USD</li>
                     <li>EUR</li>
                 </ul>
-                <h4>Количество пересадок</h4>
+                <h3>Количество пересадок</h3>
                 <div className="filters-container">
                     <div className="transplants-filter">
                         <input type="checkbox" id="all" />

@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
 .App {
   text-align: center;
   background-color: #F2F2F2;
   min-height: 100vh;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .App-logo {
