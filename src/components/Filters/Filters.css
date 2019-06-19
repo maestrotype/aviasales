@@ -1,6 +1,7 @@
 .filters {
     height: 331px;
     width: 232px;
+    min-width: 200px;
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 2px 5px #333;

@@ -12,7 +12,7 @@ export class Tickets extends Component {
         super(props);
         this.state = { 
             tickets: [],
-            currency: this.props.currency
+            // currency: this.props.currency
          };
     }
 
@@ -30,13 +30,30 @@ export class Tickets extends Component {
 
     changeCur = (currency) => {
         console.log('currency', currency);
-        return currency === 'RUB' ? '₽' : currency === 'USD' ? '&#36;' : '&#128;';
+        return currency === 'RUB' ? '₽' : currency === 'USD' ? <span>&#36;</span> : <span>&#128;</span>;
     }
+
+    calcCur = (currency, price) => {
+        switch(currency) {
+            case 'RUB' : {
+                return price
+            } 
+            case 'USD' : {
+                return (price * 0.016).toFixed(1)
+            } 
+            case 'EUR' : {
+                return (price * 0.014).toFixed(1)
+            } 
+            default: {
+                return price
+        }
+    }
+}
 
 
     render() {
 
-        const { tickets, currency } = this.state;
+        const { tickets } = this.state;
        
         return (
             <div className="tickets">
@@ -48,7 +65,7 @@ export class Tickets extends Component {
                             <div className="side-buy">
                                 <img src={title} alt="title" />
                                 <div className="btn-buy">
-                                    <span className="price">Купить за {price} {this.changeCur(currency)}</span>
+                                    <span className="price">Купить за {this.calcCur(this.props.currency, price)} {this.changeCur(this.props.currency)}</span>
                                 </div>
                             </div>
                             <div className="transp-side">
