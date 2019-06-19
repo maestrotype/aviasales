@@ -14,3 +14,12 @@
 .filters-container {
 
 }
+.lang {
+    list-style: none;
+    display: flex;
+    border: 1px solid #D2D5D6;
+    padding: 20px;
+    border-radius: 5px;
+    width: 70%;
+    margin: auto;
+}
