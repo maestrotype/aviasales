@@ -68,9 +68,6 @@ h2, h3 {
     transform: rotate(45deg);
   }
 
-.filters-container {
-
-}
 .lang {
     list-style: none;
     display: flex;

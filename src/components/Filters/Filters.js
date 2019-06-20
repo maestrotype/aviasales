@@ -19,26 +19,12 @@ export class Filters extends Component {
                 </ul>
                 <h3>Количество пересадок</h3>
                 <div className="filters-container">
+                    {this.props.stops.map(stopItem =>
                     <div className="transplants-filter">
-                        <input type="checkbox" id="all" />
-                        <label htmlFor="all">Все</label>
+                        <input type="checkbox" id={stopItem.id} onClick={this.props.eventClick} />
+                        <label htmlFor={stopItem.id}>{stopItem.stop}</label>
                     </div>
-                    <div className="transplants-filter">
-                        <input type="checkbox" id="without-transplants" />
-                        <label htmlFor="without-transplants">Без пересадок</label>
-                    </div>
-                    <div className="transplants-filter">
-                        <input type="checkbox" id="transplants-1" />
-                        <label htmlFor="transplants-1">1 пересадка</label>
-                    </div>
-                    <div className="transplants-filter">
-                        <input type="checkbox" id="transplants-2" />
-                        <label htmlFor="transplants-2">2 пересадки</label>
-                    </div>
-                    <div className="transplants-filter">
-                        <input type="checkbox" id="transplants-3" />
-                        <label htmlFor="transplants-3">3 пересадки</label>
-                    </div>
+                    )}
                 </div>
             </div>
         );

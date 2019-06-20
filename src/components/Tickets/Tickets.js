@@ -15,10 +15,20 @@ export class Tickets extends Component {
             // currency: this.props.currency
          };
     }
+    
+    filterTickets(tickets) {
+        var updateList = tickets;
+        updateList = updateList.filter((item) => {
+            console.log(item.stops);
+            console.log('props', this.props.stops);
+            return item.stops == this.props.stops
+        });
+        console.log('updateList', updateList);
+        return updateList;
+        
+    } 
 
     componentDidMount() {
-        
-            // this.setState({ tickets: data.tickets });
     
         fetch('tickets.json')
             .then(response => response.json())
@@ -30,7 +40,7 @@ export class Tickets extends Component {
 
     changeCur = (currency) => {
         console.log('currency', currency);
-        return currency === 'RUB' ? '₽' : currency === 'USD' ? <span>&#36;</span> : <span>&#128;</span>;
+        return currency === 'RUB' ? '₽' : currency === 'USD' ? <span>&#36;</span> : <span>&euro;</span>;
     }
 
     calcCur = (currency, price) => {
@@ -57,9 +67,9 @@ export class Tickets extends Component {
        
         return (
             <div className="tickets">
-                {tickets.map((ticket) => {
+                { this.filterTickets(tickets).map((ticket) => {
                     const { departure_time, arrival_date,departure_date,origin, origin_name, arrival_time,destination, destination_name, price, stops } = ticket;
-        
+                    
                     return (
                         <div className="ticket">
                             <div className="side-buy">
@@ -75,7 +85,7 @@ export class Tickets extends Component {
                                     <div className="date">{departure_date}</div>
                                 </div>
                                 <div className="amount-transp">
-                                    <span>{stops} пересадк{stops === 1 ? 'a' : 'и' }</span>
+                                    <span> {stops === 0 ? 'без пересадок' : stops === 1 ? '1 пересадкa' : stops + ' пересадки' }</span>
                                     <div className="underline">
                                         <img className="plane" src={plane} alt="plane"/>
                                     </div>

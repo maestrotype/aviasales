@@ -11,25 +11,48 @@ const curMenu = [
 
 ];
 
+const stops = [
+  {
+    stop: 'Все',
+    id: 'all'
+  },
+  {
+    stop: 'Без пересадок',
+    id: '0'
+  },
+  {
+    stop: '1 пересадка',
+    id: '1'
+  },
+  {
+    stop: '2 пересадки',
+    id: '2'
+  },
+  {
+    stop: '3 пересадки',
+    id: '3'
+  }
+  
+];
+
 class App extends Component {
   constructor(props) {
     super(props);
-    this.changeCur = this.changeCur.bind(this);
     this.state = {
-      activeCurrency: 'RUB'
+      activeCurrency: 'RUB',
+      stops: '1'
     };
   }
 
-   async changeCur(e) {
+   changeCur = (e) => {
+    this.setState({ activeCurrency: e.target.innerText })   
+  }
 
-    this.setState({ activeCurrency: e.target.innerText }
-    //   , () => {
-    //   console.log(this.state.activeCurrency);
-    // }
-    )
-    // this.setState({ activeCurrency: this.state.activeCurrency })
-    // });
-   
+  changeStops = (e) => {
+    console.log('event', e.target.id);
+    this.setState({ stops: e.target.id });
+    // return e.target.id;
+    
   }
 
   render() {
@@ -39,10 +62,17 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
         </header>
         <div className="container">
-          <Filters curMenu={curMenu} activeCurrency={this.state.activeCurrency}
+          <Filters 
+            curMenu = {curMenu} 
+            stops = {stops}
+            activeCurrency={this.state.activeCurrency}
             changeCur={this.changeCur}
+            eventClick={this.changeStops}
           />
-          <Tickets currency={this.state.activeCurrency}/>
+          <Tickets 
+            currency={this.state.activeCurrency}
+            stops={this.state.stops}
+          />
         </div>
       </div>
     );
