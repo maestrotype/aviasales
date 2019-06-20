@@ -18,13 +18,18 @@ export class Tickets extends Component {
     
     filterTickets(tickets) {
         var updateList = tickets;
+        if(this.props.stops.stop == 'all' && this.props.stops.active) {
+            return updateList;
+        } 
+            else
+        {
         updateList = updateList.filter((item) => {
-            console.log(item.stops);
-            console.log('props', this.props.stops);
-            return item.stops == this.props.stops
+
+            return item.stops == this.props.stops.stop && this.props.stops.active
         });
-        console.log('updateList', updateList);
+        
         return updateList;
+    }
         
     } 
 
@@ -39,7 +44,6 @@ export class Tickets extends Component {
     }
 
     changeCur = (currency) => {
-        console.log('currency', currency);
         return currency === 'RUB' ? '₽' : currency === 'USD' ? <span>&#36;</span> : <span>&euro;</span>;
     }
 

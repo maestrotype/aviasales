@@ -21,7 +21,7 @@ export class Filters extends Component {
                 <div className="filters-container">
                     {this.props.stops.map(stopItem =>
                     <div className="transplants-filter">
-                        <input type="checkbox" id={stopItem.id} onClick={this.props.eventClick} />
+                        <input type="checkbox" id={stopItem.id} className={this.props.stateStops.active ==true ? 'active' : ''} onClick={this.props.eventClick} />
                         <label htmlFor={stopItem.id}>{stopItem.stop}</label>
                     </div>
                     )}

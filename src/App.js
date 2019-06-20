@@ -14,23 +14,28 @@ const curMenu = [
 const stops = [
   {
     stop: 'Все',
-    id: 'all'
+    id: 'all',
+    active: true
   },
   {
     stop: 'Без пересадок',
-    id: '0'
+    id: '0',
+    active: false
   },
   {
     stop: '1 пересадка',
-    id: '1'
+    id: '1',
+    active: false
   },
   {
     stop: '2 пересадки',
-    id: '2'
+    id: '2',
+    active: false
   },
   {
     stop: '3 пересадки',
-    id: '3'
+    id: '3',
+    active: false
   }
   
 ];
@@ -40,7 +45,10 @@ class App extends Component {
     super(props);
     this.state = {
       activeCurrency: 'RUB',
-      stops: '1'
+      stops: {
+        stop: 'all',
+        active: true
+      }
     };
   }
 
@@ -49,8 +57,13 @@ class App extends Component {
   }
 
   changeStops = (e) => {
-    console.log('event', e.target.id);
-    this.setState({ stops: e.target.id });
+    console.log('event', e.target.checked);
+    this.setState(
+      { stops: {
+        stop: e.target.id,
+        active: e.target.checked
+      }
+      });
     // return e.target.id;
     
   }
@@ -65,6 +78,7 @@ class App extends Component {
           <Filters 
             curMenu = {curMenu} 
             stops = {stops}
+            stateStops = {this.state.stops}
             activeCurrency={this.state.activeCurrency}
             changeCur={this.changeCur}
             eventClick={this.changeStops}
