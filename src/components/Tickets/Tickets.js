@@ -10,31 +10,38 @@ export class Tickets extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { 
+        this.state = {
             tickets: [],
+            updateList: [],
             // currency: this.props.currency
-         };
+        };
+        this.filterTickets = this.filterTickets.bind(this);
     }
-    
+
     filterTickets(tickets) {
         var updateList = tickets;
-        if(this.props.stops.stop == 'all' && this.props.stops.active) {
+        if (this.props.stops.stop == 'all' && this.props.stops.active) {
             return updateList;
-        } 
-            else
-        {
-        updateList = updateList.filter((item) => {
+        }
+        else {
+            updateList.map((list) => {
+                if(list.stops == this.props.stops.active) {
+                    updateList = updateList.filter((item) => {
 
-            return item.stops == this.props.stops.stop && this.props.stops.active
-        });
-        
-        return updateList;
+                return item.stops == this.props.stops.stop && this.props.stops.active
+            })
+        }
+        updateList.push(updateList);
+    })
     }
-        
-    } 
+            console.log('newList', this.state.updateList);
+
+            return updateList;
+
+    }
 
     componentDidMount() {
-    
+
         fetch('tickets.json')
             .then(response => response.json())
             .then(data => {
@@ -48,32 +55,32 @@ export class Tickets extends Component {
     }
 
     calcCur = (currency, price) => {
-        switch(currency) {
-            case 'RUB' : {
+        switch (currency) {
+            case 'RUB': {
                 return price
-            } 
-            case 'USD' : {
+            }
+            case 'USD': {
                 return (price * 0.016).toFixed(1)
-            } 
-            case 'EUR' : {
+            }
+            case 'EUR': {
                 return (price * 0.014).toFixed(1)
-            } 
+            }
             default: {
                 return price
+            }
         }
     }
-}
 
 
     render() {
 
         const { tickets } = this.state;
-       
+
         return (
             <div className="tickets">
-                { this.filterTickets(tickets).map((ticket) => {
-                    const { departure_time, arrival_date,departure_date,origin, origin_name, arrival_time,destination, destination_name, price, stops } = ticket;
-                    
+                {this.filterTickets(tickets).map((ticket) => {
+                    const { departure_time, arrival_date, departure_date, origin, origin_name, arrival_time, destination, destination_name, price, stops } = ticket;
+
                     return (
                         <div className="ticket">
                             <div className="side-buy">
@@ -89,9 +96,9 @@ export class Tickets extends Component {
                                     <div className="date">{departure_date}</div>
                                 </div>
                                 <div className="amount-transp">
-                                    <span> {stops === 0 ? 'без пересадок' : stops === 1 ? '1 пересадкa' : stops + ' пересадки' }</span>
+                                    <span> {stops === 0 ? 'без пересадок' : stops === 1 ? '1 пересадкa' : stops + ' пересадки'}</span>
                                     <div className="underline">
-                                        <img className="plane" src={plane} alt="plane"/>
+                                        <img className="plane" src={plane} alt="plane" />
                                     </div>
                                 </div>
                                 <div className="transp-to">
