@@ -12,32 +12,37 @@ export class Tickets extends Component {
         super(props);
         this.state = {
             tickets: [],
-            updateList: [],
-            // currency: this.props.currency
         };
+        this.newList = [];
         this.filterTickets = this.filterTickets.bind(this);
     }
 
     filterTickets(tickets) {
         var updateList = tickets;
+        
         if (this.props.stops.stop == 'all' && this.props.stops.active) {
             return updateList;
         }
         else {
             updateList.map((list) => {
-                if(list.stops == this.props.stops.active) {
+                if(list.stops == this.props.stops.stop && this.props.stops.active) {
                     updateList = updateList.filter((item) => {
 
                 return item.stops == this.props.stops.stop && this.props.stops.active
             })
-        }
-        updateList.push(updateList);
-    })
+            
+            this.newList.push(list);
+        } 
+        else if(list.stops == this.props.stops.stop && !this.props.stops.active) {
+            
+            this.newList = this.newList.filter((item) => {
+                return   item.stops != list.stops
+            })
+        }   
+        })
     }
-            console.log('newList', this.state.updateList);
 
-            return updateList;
-
+            return this.newList;
     }
 
     componentDidMount() {
@@ -48,6 +53,7 @@ export class Tickets extends Component {
                 this.setState({ tickets: data.tickets });
             })
             .catch(error => console.log('error', error));
+  
     }
 
     changeCur = (currency) => {

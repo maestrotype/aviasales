@@ -57,14 +57,12 @@ class App extends Component {
   }
 
   changeStops = (e) => {
-    console.log('event', e.target.checked);
     this.setState(
       { stops: {
         stop: e.target.id,
         active: e.target.checked
       }
       });
-    // return e.target.id;
     
   }
 
