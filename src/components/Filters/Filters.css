@@ -4,7 +4,7 @@
     min-width: 200px;
     background-color: #fff;
     border-radius: 5px;
-    box-shadow: 0 2px 5px #333;
+    box-shadow: 0 2px 3px #979797;
     margin: 10px;
     padding: 10px 0;
 }
@@ -15,6 +15,10 @@ h2, h3 {
     text-align: left;
     width: 90%;
     margin: 10px auto 10px;
+ }
+
+ h3 {
+     margin-top: 30px;
  }
 
 .transplants-filter {
@@ -51,11 +55,15 @@ h2, h3 {
   margin-right: 5px;
 }
 
-.transplants-filter input:checked + label:before {
+.transplants-filter input:checked + label:before
+/* ,.transplants-filter:first-child input + label:before  */
+{
     border: 1px solid #2196f3;  
 }
 
-.transplants-filter input:checked + label:after {
+.transplants-filter input:checked + label:after 
+/* ,.transplants-filter:first-child input + label:after */
+ {
     content: '';
     display: block;
     position: absolute;

@@ -6,6 +6,7 @@ import './Filters.css';
 export class Filters extends Component {
 
     render() {
+        
         return (
             <div className="filters">
                 <h2>Валюта</h2>
@@ -20,11 +21,14 @@ export class Filters extends Component {
                 <h3>Количество пересадок</h3>
                 <div className="filters-container">
                     {this.props.stops.map(stopItem =>
-                    <div className="transplants-filter">
+                    <div className="transplants-filter"  >
                         <input type="checkbox" 
                             id={stopItem.id} 
-                            // className={this.props.stateStops.active ==true ? 'active' : ''} 
-                            onClick={this.props.eventClick} />
+                            className={this.props.stateStops.stop == 'all' && this.props.stateStops.active == true ? 'active' : ''} 
+                            onClick={this.props.eventClick}
+                            
+                            />
+                            
                         <label htmlFor={stopItem.id}>{stopItem.stop}</label>
                     </div>
                     )}
