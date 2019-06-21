@@ -81,19 +81,13 @@ export class Tickets extends Component {
     render() {
 
         const { tickets } = this.state;
-
-        if (this.filterTickets(tickets).length == 0) {
-            return (
-                <div className="tickets">
-                    <h1>Ничего не выбрано</h1>
-                </div>
-            )
-        }
-        else {
+        this.updateList = this.filterTickets(tickets);
+        
+        if (this.updateList.length !== 0) {    
             return (
 
                 <div className="tickets">
-                    {this.filterTickets(tickets).map((ticket) => {
+                    {this.updateList.map((ticket) => {
                         const { departure_time, arrival_date, departure_date, origin, origin_name, arrival_time, destination, destination_name, price, stops } = ticket;
 
                         return (
@@ -129,6 +123,13 @@ export class Tickets extends Component {
                 </div>
             );
         }
-
+        else {   
+            return (
+                <div className="tickets">
+                    <h1>Ничего не выбрано</h1>
+                </div>
+            )
+        }
     }
 }
+         

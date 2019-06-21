@@ -24,7 +24,7 @@ export class Filters extends Component {
                     <div className="transplants-filter"  >
                         <input type="checkbox" 
                             id={stopItem.id} 
-                            className={this.props.stateStops.stop == 'all' && this.props.stateStops.active == true ? 'active' : ''} 
+                            // className={this.props.stateStops.stop == 'all' && this.props.stateStops.active == true ? 'active' : ''} 
                             onClick={this.props.eventClick}
                             
                             />
