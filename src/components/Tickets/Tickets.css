@@ -1,13 +1,13 @@
 .tickets {
-    min-width: 570px;
+    flex-basis: 566px;
+    margin-right: 10px;
 }
 .ticket {
     height: 161px;
-    width: 566px;
     background-color: #fff;
     border-radius: 5px;
-    box-shadow: 0 2px 3px #979797;
-    margin: 10px;
+    box-shadow: 0 2px 3px #5b89a440;
+    margin: 10px 0 20px 20px;
     padding: 0 20px;
     display: flex;
     align-items: flex-start;
@@ -15,19 +15,21 @@
     transition-duration: 0.4s;
 }
 .ticket:hover {
-    box-shadow: 0 6px 10px 1px #979797;  
+    box-shadow: 0 6px 10px 1px #5b89a440;  
 }
 .btn-buy {
     background-color: #FF6D00;
     box-shadow: 0 1px 1px #d64d08;
     color: #fff;
-    display: flex;
+    text-align: center;
     border-radius: 5px;
     width: 160px;
     height: 56px;
     cursor: pointer;
+    padding-top: 7px;
     margin-bottom: 10px;
     transition-duration: 0.4s;
+    box-sizing: border-box;
 }
 .btn-buy:hover {
     background-color: #ff8124;
@@ -68,8 +70,10 @@
 }
 .underline {
     height: 1px;
+    width: 108px;
+    right: 10px;
     margin-top: 7px;
-    background-color: #979797;
+    background-color: #d2d5d6;
     position: relative;
 }
 .plane {
@@ -77,3 +81,22 @@
     right: -15px;
     bottom: -6px;
 }
+@media screen and (max-width: 400px) {
+    .ticket {
+      height: auto;
+      padding: 20px;  
+      flex-direction: column;
+      flex-direction: column-reverse;
+      margin: 10px;
+    }
+    .side-buy {
+        border-right: none;
+        width: 100%; 
+    }
+    .side-buy img {
+        margin: auto;
+    }
+    .btn-buy {
+        margin: 10px auto 10px;
+    }
+  }

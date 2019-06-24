@@ -95,7 +95,8 @@ export class Tickets extends Component {
                                 <div className="side-buy">
                                     <img src={title} alt="title" />
                                     <div className="btn-buy">
-                                        <span className="price">Купить за {this.calcCur(this.props.currency, price)} {this.changeCur(this.props.currency)}</span>
+                                        <span className="price">Купить</span> <br/>
+                                        <span className="price"> за {this.calcCur(this.props.currency, price)} {this.changeCur(this.props.currency)}</span>
                                     </div>
                                 </div>
                                 <div className="transp-side">
