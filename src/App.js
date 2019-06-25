@@ -61,7 +61,12 @@ class App extends Component {
     if(e.target.id !== 'all') {
       document.getElementById('all').checked = false;
     }
-    
+    else if(e.target.id == 'all') {
+      let ckeckStops = document.getElementsByClassName('ckeckStops');
+      for(let i = 0; i < ckeckStops.length; i++ ) {
+        ckeckStops[i].checked = true;
+      }
+    }
     this.setState(
       { stops: {
         stop: e.target.id,

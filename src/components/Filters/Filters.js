@@ -25,12 +25,12 @@ export class Filters extends Component {
                         <input type="checkbox" 
                             id={stopItem.id} 
                             ref={stopItem.id}
-                            // className={this.props.stateStops.stop == 'all' && this.props.stateStops.active == true ? 'active' : ''} 
+                            className="ckeckStops" 
                             onClick={this.props.eventClick}
                             
-                            />
-                            
+                            />    
                         <label htmlFor={stopItem.id}>{stopItem.stop}</label>
+                        <a href="" className="hoverLink">только</a>
                     </div>
                     )}
                 </div>
