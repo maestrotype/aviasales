@@ -55,13 +55,11 @@ h2, h3 {
 }
 
 .transplants-filter input:checked + label:before
-/* ,.transplants-filter:first-child input + label:before  */
 {
     border: 1px solid #2196f3;  
 }
 
 .transplants-filter input:checked + label:after 
-/* ,.transplants-filter:first-child input + label:after */
  {
     content: '';
     display: block;

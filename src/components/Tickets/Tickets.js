@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import title from './title.svg';
 import plane from './plane.svg';
+import dateFormat from 'dateformat';
 // import data from './tickets.json';
 import './Tickets.css';
 
@@ -92,11 +93,25 @@ export class Tickets extends Component {
         }
     }
 
+    dateFormat = dateFormat.i18n = {
+        dayNames: [
+            'Вос', 'Пон', 'Вт', 'Ср', 'Чет', 'Пят', 'Суб',
+            'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
+        ],
+        monthNames: [
+            'Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июнь', 'Июль', 'Авг', 'Сен', 'Окт', 'Ноябрь', 'Дек',
+            'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
+        ],
+        timeNames: [
+            'a', 'p', 'am', 'pm', 'A', 'P', 'AM', 'PM'
+        ]
+    };
+
 
     render() {
 
         const { tickets } = this.state;
-        this.updateList = this.filterTickets(tickets);
+        this.updateList = this.filterTickets(tickets); 
 
         if (this.updateList.length !== 0) {
             return (
@@ -118,7 +133,7 @@ export class Tickets extends Component {
                                     <div className="transp-from">
                                         <div className="time">{departure_time}</div>
                                         <div className="sity">{origin},{origin_name}</div>
-                                        <div className="date">{departure_date}</div>
+                                        <div className="date">{dateFormat(departure_date, "d mmm, yyyy, ddd")}</div>
                                     </div>
                                     <div className="amount-transp">
                                         <span> {stops === 0 ? 'без пересадок' : stops === 1 ? '1 пересадкa' : stops + ' пересадки'}</span>
@@ -129,7 +144,7 @@ export class Tickets extends Component {
                                     <div className="transp-to">
                                         <div className="time">{arrival_time}</div>
                                         <div className="sity">{destination_name},{destination}</div>
-                                        <div className="date">{arrival_date}</div>
+                                        <div className="date">{dateFormat(arrival_date, "d mmm, yyyy, ddd")}</div>
                                     </div>
                                 </div>
                             </div>

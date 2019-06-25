@@ -57,6 +57,11 @@ class App extends Component {
   }
 
   changeStops = (e) => {
+    
+    if(e.target.id !== 'all') {
+      document.getElementById('all').checked = false;
+    }
+    
     this.setState(
       { stops: {
         stop: e.target.id,
@@ -80,6 +85,7 @@ class App extends Component {
             activeCurrency={this.state.activeCurrency}
             changeCur={this.changeCur}
             eventClick={this.changeStops}
+            refId = {this.ref}
           />
           <Tickets 
             currency={this.state.activeCurrency}
