@@ -60,10 +60,25 @@ export class Tickets extends Component {
         return currency === 'RUB' ? '₽' : currency === 'USD' ? <span>&#36;</span> : <span>&euro;</span>;
     }
 
+    transformSum(price) {
+        var trPrice = price.toString();
+        if (trPrice.length > 3) {
+            for (let i = trPrice.length; trPrice >= 0  ; i--) {
+                if (i % 3 == 0) {
+                    var ar = trPrice.split('');
+                    ar.splice(trPrice.length - i, 0, ' ');
+                    trPrice = ar.join('');
+                }
+            }
+        }
+
+        return trPrice
+    }
+
     calcCur = (currency, price) => {
         switch (currency) {
             case 'RUB': {
-                return price
+                return this.transformSum(price)
             }
             case 'USD': {
                 return (price * 0.016).toFixed(1)
@@ -82,8 +97,8 @@ export class Tickets extends Component {
 
         const { tickets } = this.state;
         this.updateList = this.filterTickets(tickets);
-        
-        if (this.updateList.length !== 0) {    
+
+        if (this.updateList.length !== 0) {
             return (
 
                 <div className="tickets">
@@ -95,7 +110,7 @@ export class Tickets extends Component {
                                 <div className="side-buy">
                                     <img src={title} alt="title" />
                                     <div className="btn-buy">
-                                        <span className="price">Купить</span> <br/>
+                                        <span className="price">Купить</span> <br />
                                         <span className="price"> за {this.calcCur(this.props.currency, price)} {this.changeCur(this.props.currency)}</span>
                                     </div>
                                 </div>
@@ -124,7 +139,7 @@ export class Tickets extends Component {
                 </div>
             );
         }
-        else {   
+        else {
             return (
                 <div className="tickets">
                     <h1>Ничего не выбрано</h1>
@@ -133,4 +148,4 @@ export class Tickets extends Component {
         }
     }
 }
-         
+
