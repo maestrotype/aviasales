@@ -37,7 +37,7 @@ const stops = [
     id: '3',
     active: false
   }
-  
+
 ];
 
 class App extends Component {
@@ -52,28 +52,42 @@ class App extends Component {
     };
   }
 
-   changeCur = (e) => {
-    this.setState({ activeCurrency: e.target.innerText })   
+  changeCur = (e) => {
+    this.setState({ activeCurrency: e.target.innerText })
   }
 
   changeStops = (e) => {
+    let ckeckStops = document.getElementsByClassName('ckeckStops');
     
-    if(e.target.id !== 'all') {
+    
+
+    if(e.target.className == 'hoverLink') 
+    { 
+      for (let i = 0; i < ckeckStops.length; i++) {
+        ckeckStops[i].checked = false;
+      }
+      let id = e.target.getAttribute('data-id');
+      document.getElementById(id).checked = true;
+      console.log('target', e.target.getAttribute('data-id'));
+      
+    }
+    else if (e.target.id !== 'all') {
       document.getElementById('all').checked = false;
     }
-    else if(e.target.id == 'all') {
-      let ckeckStops = document.getElementsByClassName('ckeckStops');
-      for(let i = 0; i < ckeckStops.length; i++ ) {
+    else if (e.target.id == 'all') {  
+      for (let i = 0; i < ckeckStops.length; i++) {
         ckeckStops[i].checked = true;
       }
     }
-    this.setState(
-      { stops: {
-        stop: e.target.id,
-        active: e.target.checked
-      }
-      });
     
+    this.setState(
+      {
+        stops: {
+          stop: e.target.id,
+          active: e.target.checked
+        }
+      });
+
   }
 
   render() {
@@ -83,16 +97,16 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
         </header>
         <div className="container">
-          <Filters 
-            curMenu = {curMenu} 
-            stops = {stops}
-            stateStops = {this.state.stops}
+          <Filters
+            curMenu={curMenu}
+            stops={stops}
+            stateStops={this.state.stops}
             activeCurrency={this.state.activeCurrency}
             changeCur={this.changeCur}
             eventClick={this.changeStops}
-            refId = {this.ref}
+            refId={this.ref}
           />
-          <Tickets 
+          <Tickets
             currency={this.state.activeCurrency}
             stops={this.state.stops}
           />

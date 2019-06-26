@@ -30,7 +30,7 @@ export class Filters extends Component {
                             
                             />    
                         <label htmlFor={stopItem.id}>{stopItem.stop}</label>
-                        <a href="" className="hoverLink">только</a>
+                        <a onClick={this.props.eventClick} data-id={stopItem.id} className="hoverLink">только</a>
                     </div>
                     )}
                 </div>
